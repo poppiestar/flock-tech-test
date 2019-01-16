@@ -7,9 +7,11 @@ import type DroneData from "../../../types/drones";
 
 type Props = {
     drones: DroneData[];
+    lastUpdated: number;
+    loading: boolean;
 }
 
-const HomeTemplate = ({ drones }: Props) => (
+const HomeTemplate = ({ drones, lastUpdated, loading }: Props) => (
     <div className="App">
         <header className="App-header">
             <h1>Drone Home</h1>
