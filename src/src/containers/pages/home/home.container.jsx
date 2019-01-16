@@ -19,7 +19,7 @@ class HomeContainer extends Component<Props, State> {
 
         this.state = {
             droneData: [],
-            lastUpdated: new Date().getMilliseconds(),
+            lastUpdated: Date.now(),
             loading: true
         };
     }
@@ -30,7 +30,7 @@ class HomeContainer extends Component<Props, State> {
             .then(droneData => this.setState({
                 droneData,
                 loading: false,
-                lastUpdated: new Date().getMilliseconds()
+                lastUpdated: Date.now()
             }))
             .catch(error => console.log(error));
     }
