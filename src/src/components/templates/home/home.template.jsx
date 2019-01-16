@@ -17,7 +17,14 @@ const HomeTemplate = ({ drones, lastUpdated, loading }: Props) => (
             <h1>Drone Home</h1>
             <p>We like drones, you like drones. Take a look at our drones!</p>
         </header>
-        <DronesList drones={drones} />
+        <h2>Available Drones</h2>
+        {loading ?
+            <p>Loading drone list...</p> :
+            <DronesList
+                drones={drones}
+                lastUpdated={lastUpdated}
+            />
+        }
     </div>
 );
 
