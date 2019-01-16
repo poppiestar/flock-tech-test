@@ -25,6 +25,10 @@ class HomeContainer extends Component<Props, State> {
     }
 
     componentDidMount() {
+        this.fetchDroneData();
+    }
+
+    fetchDroneData() {
         fetch(API_ENDPOINT)
             .then(response => response.json())
             .then(droneData => this.setState({
@@ -32,8 +36,9 @@ class HomeContainer extends Component<Props, State> {
                 loading: false,
                 lastUpdated: Date.now()
             }))
-            .catch(error => console.log(error));
+            .catch(error => this.fetchDroneData());
     }
+
     render() {
         const { droneData, lastUpdated, loading } = this.state;
 
